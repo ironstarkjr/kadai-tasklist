@@ -42,6 +42,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     if @task.destroy
       flash[:success] = "タスクを削除しました"
+      redirect_to root_url
     else
       flash[:danger].now = "タスクの削除に失敗しました"
       render @task
