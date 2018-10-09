@@ -1,0 +1,10 @@
+<%= form_for task do |f| %>
+
+  <%= f.label :content, 'タスク' %>
+  <%= f.text_field :content %>
+  <br/>
+  <%= f.label :status, 'ステータス' %>
+  <%= f.select :status, [["未実施", "未実施"], ["着手", "着手"], ["完了", "完了"]] %>
+  <br/>
+  <%= f.submit '反映' %>
+<% end %>
