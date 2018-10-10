@@ -1,18 +1,26 @@
-<%= form_for task do |f| %>
-  
-  <% if task.errors.any?%>
-    <ul>
-      <% task.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+    <%= form_for task do |f| %>
+      
+      <% if task.errors.any?%>
+        <div class="alert alert-warning">
+          <ul>
+            <% task.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
       <% end %>
-    </ul>
-  <% end %>
-  
-  <%= f.label :content, 'タスク' %>
-  <%= f.text_field :content %>
-  <br/>
-  <%= f.label :status, 'ステータス' %>
-  <%= f.select :status, [["未実施", "未実施"], ["着手", "着手"], ["完了", "完了"]] %>
-  <br/>
-  <%= f.submit '反映' %>
-<% end %>
+      
+      <div class="form-group">
+        <%= f.label :content, 'タスク' %>
+        <%= f.text_field :content, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :status, 'ステータス' %>
+        <%= f.select :status, [["未実施", "未実施"], ["着手", "着手"], ["完了", "完了"]], {}, class: "form-control" %>
+      </div>
+      <%= f.submit '反映', class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

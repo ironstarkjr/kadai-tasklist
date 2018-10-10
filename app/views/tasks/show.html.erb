@@ -2,5 +2,3 @@
 <%= "#{@task.content}(#{@task.status})" %>
 <%= link_to '編集', edit_task_path %>
 <%= link_to '削除', @task, method: :delete, data: {confirm: '削除してもよろしいですか？'} %>
-<br/><br/>
-<%= link_to 'タスク一覧に戻る', root_path %>
